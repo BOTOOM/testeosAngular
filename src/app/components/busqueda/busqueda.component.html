@@ -1,3 +1,35 @@
 <p>
-  busqueda works!
+  aqui no voy a buscar nada, solo es una ruta de pruebas
 </p>
+
+
+<div class="card bg-dark">
+  <div class="card-body">
+    {{ palabra }}
+
+    <br>
+
+      <div>
+        <input [(ngModel)]="texto_ingresado" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+        <label > {{ texto_ingresado }} </label>
+      </div>
+      <button class="btn btn-primary m-2" (click)="prueba()" >Click me</button>
+      <button class="btn btn-primary m-2" (click)="mostrar()" >Mostrar / Ocultar</button>
+  </div>
+</div>
+<br>
+
+<div *ngIf="visible" class="jumbotron bg-dark">
+  <h1 class="display-4">Proyecto de testeo y aprendizaje con Angular 7</h1>
+  <p class="lead">este es un proyecto de aprendizaje con angular</p>
+  <hr class="my-4">
+ </div>
+
+ <br>
+
+ <div *ngFor="let num of numero" class="card bg-dark">
+   
+  <div class="card-body">
+      {{ num  }}
+  </div>
+</div>
