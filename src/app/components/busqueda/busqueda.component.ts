@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -12,11 +13,15 @@ export class BusquedaComponent implements OnInit {
   mundo = 'mundo';
   visible: boolean;
   numero = [];
+  Heroes = [];
+  Personajes = [];
 
-  constructor() {
+  constructor(
+    private serviciosHeroes: HeroesService,
+  ) {
     this.palabra = `hola ${this.mundo} , no se que mas escribir`;
     console.log(this.palabra);
-    this.prueba2();
+    // this.prueba2();
     this.visible = false;
     this.iteracion();
   }
@@ -26,15 +31,13 @@ export class BusquedaComponent implements OnInit {
 
   prueba() {
     console.log('entro a la funcion de preuba');
-    this.prueba3();
+    this.Heroes = this.serviciosHeroes.getHeroes();
+    console.log(`heores`);
+    console.log(this.Heroes);
   }
 
   prueba2() {
     console.log('entro a la segunda funcion');
-  }
-
-  prueba3() {
-    console.log('entro a la tercera funcion');
   }
 
   mostrar() {
@@ -43,10 +46,18 @@ export class BusquedaComponent implements OnInit {
 
   iteracion() {
     for (let i = 0; i < 10; i++) {
-      console.log(i);
+      // console.log(i);
       this.numero.push(i);
     }
-    console.log(this.numero);
+    // console.log(this.numero);
+  }
+
+  getPersona() {
+    this.serviciosHeroes.getPersonajes().subscribe( datos => {
+      console.log(datos);
+    }, (error_service) => {
+      console.log(error_service);
+    });
   }
 
 }

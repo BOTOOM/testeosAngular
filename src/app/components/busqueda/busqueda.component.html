@@ -15,6 +15,7 @@
       </div>
       <button class="btn btn-primary m-2" (click)="prueba()" >Click me</button>
       <button class="btn btn-primary m-2" (click)="mostrar()" >Mostrar / Ocultar</button>
+      <button class="btn btn-primary m-2" (click)="getPersona()" >personajes</button>
   </div>
 </div>
 <br>
@@ -26,10 +27,27 @@
  </div>
 
  <br>
-
- <div *ngFor="let num of numero" class="card bg-dark">
+<div *ngIf="visible">
+    <div  *ngFor="let num of numero" class="card bg-dark">
    
-  <div class="card-body">
-      {{ num  }}
-  </div>
+        <div class="card-body">
+            {{ num  }}
+        </div>
+      </div>
 </div>
+<br>
+
+<div class="card-deck m-3">
+    <div *ngFor="let Hero of Heroes" class="card bg-dark col-3">
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title">{{ Hero.nombre }}</h5>
+        <p class="card-text">.</p>
+        heroe de {{ Hero['casa'] }}
+        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+      </div>
+    </div>
+
+  </div>
+
+
